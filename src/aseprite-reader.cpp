@@ -344,8 +344,8 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 				frame->cels[LAYER_INDEX] = cel;
 
 #ifdef IS_NODE
+				// cel node object
 				cel->object = newObject;
-
 				obj_push(objCels, cel->object);
 				cel->object["x"] = n_num(cel->x);
 				cel->object["y"] = n_num(cel->y);
@@ -403,6 +403,7 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 					tag->name = readString(in, readUInt16(in));
 
 #ifdef IS_NODE
+					// tag node object
 					tag->object = newObject;
 					tag->objFrames = newArray;
 					obj_push(objTags, tag->object);
@@ -427,6 +428,7 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 				skipBytes(in, 8);
 
 #ifdef IS_NODE
+				// palette node object
 				file.palette->objColors = newArray;
 				objPalette["size"] = n_num(COLOR_COUNT);
 				objPalette["firstColor"] = n_num(file.palette->firstColor);
@@ -478,6 +480,7 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 				slice->name = readString(in, readUInt16(in));
 
 #ifdef IS_NODE
+				// slice node object
 				slice->object = newObject;
 				slice->objKeys = newArray;
 				obj_push(objSlices, slice->object);

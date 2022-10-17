@@ -21,7 +21,7 @@ const buffer = fs.readFileSync('./test.aseprite');
 const ase = readAseprite(buffer);
 
 for (const layer of ase.layers) {
-    console.log(layer.name);
+	console.log(layer.name);
 }
 ```
 
@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
 	AsepriteReader reader;
 
 	char *buffer = /* file data */;
-    int size = /* file size */;
+	int size = /* file size */;
 
 	reader.load((uint8_t *)buffer, (uint32_t)size);
 
@@ -146,6 +146,6 @@ int main(int argc, char **argv) {
 }
 ```
 
-# More info
+## More info
 
 Aseprite file spec: [Spec](https://github.com/aseprite/aseprite/blob/main/docs/ase-file-specs.md)

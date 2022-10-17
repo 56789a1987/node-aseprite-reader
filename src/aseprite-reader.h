@@ -173,7 +173,7 @@ public:
 		int opacity = 0;
 		int link = -1;
 
-		std::shared_ptr<uint8_t> pixels; // RGBA
+		std::shared_ptr<uint8_t> pixels;
 
 		Frame *frame = nullptr;
 		Layer *layer = nullptr;
