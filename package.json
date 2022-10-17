@@ -1,0 +1,36 @@
+{
+  "name": "aseprite-reader",
+  "version": "0.0.1",
+  "description": "Aseprite file parser for C++ and Node",
+  "main": "index.js",
+  "gypfile": true,
+  "typings": "./index.d.ts",
+  "scripts": {
+    "test": "node tests/test.js",
+    "install": "node-gyp rebuild",
+    "build": "node-gyp configure && node-gyp build",
+    "clean": "node-gyp clean"
+  },
+  "keywords": [
+    "aseprite",
+    "parser",
+    "ase"
+  ],
+  "author": "",
+  "engines": {
+    "node": ">=6"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/56789a1987/node-aseprite-reader.git"
+  },
+  "bugs": {
+		"url": "https://github.com/56789a1987/node-aseprite-reader/issues"
+	},
+	"homepage": "https://github.com/56789a1987/node-aseprite-reader",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^5.0.0"
+  }
+}
