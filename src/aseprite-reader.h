@@ -149,6 +149,7 @@ public:
 	struct Layer
 	{
 		std::string name;
+		uint16_t index;
 
 		uint16_t type;
 		uint16_t flags;

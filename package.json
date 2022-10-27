@@ -1,6 +1,6 @@
 {
   "name": "aseprite-reader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Aseprite file parser for C++ and Node",
   "main": "index.js",
   "gypfile": true,

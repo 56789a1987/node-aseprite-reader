@@ -70,6 +70,7 @@ Parses the Aseprite file and returns the [Aseprite](#aseprite-object) object.
 | Property      | Type    | Description                                    |
 |---------------|---------|------------------------------------------------|
 | `name`        | string  | Layer name                                     |
+| `index`       | number  | Index of the layer in Aseprite.layers array    |
 | `type`        | number  | Layer type. 0 = Normal, 1 = Group, 2 = Tilemap |
 | `flags`       | number  | Layer flags (see [spec](#more-info))           |
 | `opacity`     | number  | Opacity (0-255)                                |

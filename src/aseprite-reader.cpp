@@ -192,7 +192,8 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 	object["palette"] = objPalette;
 #endif
 
-	std::map<int, Layer *> layerIndex;
+	uint16_t layerIndex = 0;
+	std::map<int, Layer *> layerLevelMap;
 
 	for (unsigned idxFrame = 0u; idxFrame < FRAME_COUNT; ++idxFrame)
 	{
@@ -236,6 +237,7 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 				const unsigned short LAYER_FLAGS = readUInt16(in);
 				const unsigned short LAYER_TYPE = readUInt16(in);
 
+				layer->index = layerIndex;
 				layer->flags = LAYER_FLAGS;
 				layer->type = LAYER_TYPE;
 
@@ -252,6 +254,7 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 				layer->objChildren = newArray;
 				obj_push(objLayers, layer->object);
 				layer->object["name"] = n_str(layer->name);
+				layer->object["index"] = n_num(layer->index);
 				layer->object["type"] = n_num(layer->type);
 				layer->object["flags"] = n_num(layer->flags);
 				layer->object["opacity"] = n_num(layer->opacity);
@@ -265,7 +268,7 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 				}
 				else
 				{
-					layer->layerParent = layerIndex[LAYER_CHILD_LEVEL - 1];
+					layer->layerParent = layerLevelMap[LAYER_CHILD_LEVEL - 1];
 					layer->layerParent->layerChildren.push_back(layer);
 #ifdef IS_NODE
 					layer->object["layerParent"] = layer->layerParent->object;
@@ -273,7 +276,8 @@ void AsepriteReader::load(const uint8_t *in, const uint32_t size)
 #endif
 				}
 
-				layerIndex[LAYER_CHILD_LEVEL] = layer;
+				layerLevelMap[LAYER_CHILD_LEVEL] = layer;
+				layerIndex++;
 			}
 			break;
 

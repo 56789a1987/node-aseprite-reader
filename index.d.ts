@@ -81,6 +81,7 @@ declare namespace AsepriteReader {
 
 	export interface Layer {
 		name: string;
+		index: number;
 		type: LayerType;
 		flags: LayerFlags;
 		opacity: number;
